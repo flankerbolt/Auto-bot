@@ -1,54 +1,125 @@
-# Create a basic index.html file with a simple layout
-index_html_content = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AutoMechGenie</title>
+    <title>AutoRepair AI - Diagnostic Assistant</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f8;
             margin: 0;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            height: 100vh;
         }
-        header {
-            background-color: #0057a3;
+        .sidebar {
+            width: 260px;
+            background-color: #1e1e1e;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar h2 {
+            color: #00d8ff;
+        }
+        .sidebar button {
+            background-color: #0e76a8;
             color: white;
-            padding: 20px;
-            text-align: center;
+            border: none;
+            padding: 12px;
             border-radius: 10px;
+            margin: 10px 0;
+            cursor: pointer;
         }
-        main {
+        .sidebar .danger {
+            background-color: #aa2e2e;
+        }
+        .sidebar .user {
+            font-size: 14px;
+            color: #aaa;
             margin-top: 20px;
         }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            color: #888;
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .chat-container {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .chat-bubble {
+            background-color: #1f1f1f;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+        .chat-bubble.user {
+            text-align: right;
+            background-color: #2e3b4e;
+        }
+        .chat-bubble.bot {
+            background-color: #2d2d2d;
+        }
+        .input-container {
+            display: flex;
+            border-top: 1px solid #333;
+            padding: 10px 0 0;
+        }
+        .input-container input {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            font-size: 16px;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        .input-container button {
+            margin-left: 10px;
+            padding: 12px 20px;
+            background-color: #00d8ff;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to AutoMechGenie</h1>
-        <p>Your smart assistant for auto repair and diagnostics</p>
-    </header>
-    <main>
-        <p>This project is designed to help users get quick solutions to their auto repair queries using a bot powered by Python and AI.</p>
-        <p>Run <code>main.py</code> to start the bot and interact with AutoMechGenie.</p>
-    </main>
-    <footer>
-        <p>&copy; 2025 AutoMechGenie Team</p>
-    </footer>
+    <div class="sidebar">
+        <div>
+            <h2>🔧 AutoRepair AI</h2>
+            <p>Powered by Gemini-2.0-flash</p>
+            <button>+ New Diagnosis</button>
+            <button class="danger">Clear Chat History</button>
+        </div>
+        <div class="user">
+            Guest User<br>
+            Free Plan
+        </div>
+    </div>
+    <div class="main">
+        <div class="chat-container">
+            <div class="chat-bubble user">
+                While driving, the car unexpectedly stalls at traffic lights. It shuts off, warning lights flash, and it needs a jump-start at times.
+            </div>
+            <div class="chat-bubble bot">
+                <strong>Diagnostic Assessment</strong><br><br>
+                Sounds like a fuel delivery issue. Could be a weak fuel pump, clogged filter, or dirty injectors.<br><br>
+                🔧 <strong>Idle Air Control (IAC) Valve:</strong> Keeps engine stable when idle. If faulty, it causes stalling.<br><br>
+                ⚠️ <strong>Low Severity:</strong> Low-octane fuel used in a high-octane engine.
+            </div>
+        </div>
+        <div class="input-container">
+            <input type="text" placeholder="Describe your car issue in detail...">
+            <button>Send</button>
+        </div>
+    </div>
 </body>
 </html>
-"""
-
-# Save the index.html file
-index_html_path = os.path.join(inner_path, "index.html")
-with open(index_html_path, "w") as file:
-    file.write(index_html_content)
-
-# Confirm the file was added
-os.listdir(inner_path)
