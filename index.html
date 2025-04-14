@@ -1,0 +1,54 @@
+# Create a basic index.html file with a simple layout
+index_html_content = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoMechGenie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            background-color: #0057a3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+        }
+        main {
+            margin-top: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to AutoMechGenie</h1>
+        <p>Your smart assistant for auto repair and diagnostics</p>
+    </header>
+    <main>
+        <p>This project is designed to help users get quick solutions to their auto repair queries using a bot powered by Python and AI.</p>
+        <p>Run <code>main.py</code> to start the bot and interact with AutoMechGenie.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 AutoMechGenie Team</p>
+    </footer>
+</body>
+</html>
+"""
+
+# Save the index.html file
+index_html_path = os.path.join(inner_path, "index.html")
+with open(index_html_path, "w") as file:
+    file.write(index_html_content)
+
+# Confirm the file was added
+os.listdir(inner_path)
